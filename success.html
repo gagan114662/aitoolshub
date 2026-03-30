@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Successful — AEOHub</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --surface: #12121a; --border: #1e1e2e;
+      --accent: #6366f1; --accent2: #10b981; --text: #e2e8f0; --muted: #64748b; --card: #0f0f18;
+    }
+    body { font-family: "Inter", sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
+    nav {
+      background: rgba(10,10,15,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 2rem;
+      display: flex; align-items: center; height: 64px;
+    }
+    .logo { font-size: 1.2rem; font-weight: 800; text-decoration: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 3rem 2rem; }
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 20px;
+      padding: 3rem 2.5rem; max-width: 520px; width: 100%; text-align: center;
+    }
+    .check-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(16,185,129,.12); border: 2px solid rgba(16,185,129,.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.75rem; margin: 0 auto 1.5rem;
+    }
+    h1 { font-size: 1.75rem; font-weight: 800; margin-bottom: .75rem; }
+    .sub { color: var(--muted); font-size: .95rem; line-height: 1.7; margin-bottom: 2rem; }
+    .highlight { color: var(--accent2); font-weight: 600; }
+    .next-steps {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.5rem; text-align: left; margin-bottom: 2rem;
+    }
+    .next-steps h3 { font-size: .88rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 1rem; }
+    .step { display: flex; gap: .85rem; margin-bottom: .85rem; align-items: flex-start; }
+    .step:last-child { margin-bottom: 0; }
+    .step-num {
+      width: 24px; height: 24px; border-radius: 50%; background: rgba(99,102,241,.15);
+      border: 1px solid rgba(99,102,241,.3); color: #a5b4fc;
+      font-size: .72rem; font-weight: 700; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: .1rem;
+    }
+    .step-text { font-size: .88rem; color: var(--muted); line-height: 1.5; }
+    .step-text strong { color: var(--text); }
+    .btn-row { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+    .btn { padding: .75rem 1.5rem; border-radius: 9px; font-size: .9rem; font-weight: 700; text-decoration: none; transition: opacity .2s; display: inline-block; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-secondary { border: 1px solid var(--border); color: var(--text); }
+    .btn:hover { opacity: .88; }
+  </style>
+</head>
+<body>
+<nav><a class="logo" href="/">AEOHub</a></nav>
+<div class="main">
+  <div class="card">
+    <div class="check-icon">✓</div>
+    <h1>You're live on AEOHub!</h1>
+    <p class="sub">
+      Your payment was successful. Your <span class="highlight" id="plan-label">Featured Listing</span> is now being processed.
+      You'll receive a confirmation email within a few minutes.
+    </p>
+    <div class="next-steps">
+      <h3>What happens next</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Review (24–48h)</strong> — Our editorial team reviews your tool submission and prepares your listing.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Go live</strong> — Your tool card appears in the directory with your Featured badge and category placement.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Editorial review published</strong> — We publish an 800-word review article optimized for AEO keywords that link to you.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text"><strong>Newsletter mention</strong> — Your tool is featured in our next weekly send to 2,000+ B2B subscribers.</div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <a href="/dashboard.html" class="btn btn-primary">View My Dashboard</a>
+      <a href="/" class="btn btn-secondary">Back to Directory</a>
+    </div>
+  </div>
+</div>
+<script>
+  // Read plan from URL or Stripe session
+  const params = new URLSearchParams(window.location.search);
+  const plan = params.get('plan') || 'featured';
+  const labels = { featured: 'Featured Listing', sponsor: 'Sponsor Spotlight' };
+  const lbl = document.getElementById('plan-label');
+  if (lbl) lbl.textContent = labels[plan] || 'Featured Listing';
+
+  // Update session plan after successful payment
+  try {
+    const s = JSON.parse(localStorage.getItem('aeohub_session') || 'null');
+    if (s && plan) {
+      s.plan = plan;
+      localStorage.setItem('aeohub_session', JSON.stringify(s));
+    }
+  } catch(e) {}
+</script>
+</body>
+</html>

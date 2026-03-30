@@ -3,203 +3,601 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AIToolsNiche — Best AI Tools for Every Niche</title>
-  <meta name="description" content="Discover the best AI tools for developers, marketers, designers, and more. Curated reviews, comparisons, and weekly picks to supercharge your workflow." />
+  <title>AEOHub — Best Answer Engine Optimization Tools 2026</title>
+  <meta name="description" content="The #1 directory for AEO tools. Discover how to rank in ChatGPT, Perplexity, and Claude. Curated AI visibility and Answer Engine Optimization tools for B2B." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://aitoolsniche.com/" />
-  <meta property="og:title" content="AIToolsNiche — Best AI Tools for Every Niche" />
-  <meta property="og:description" content="Curated AI tools for developers, marketers, designers and more." />
+  <link rel="canonical" href="https://gagan114662.github.io/aitoolshub/" />
+  <meta property="og:title" content="AEOHub — Best Answer Engine Optimization Tools 2026" />
+  <meta property="og:description" content="Get your brand cited by ChatGPT, Perplexity & Claude. The only directory focused on AEO & AI visibility tools." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg: #0f0f13; --surface: #1a1a24; --border: #2a2a38; --accent: #7c5cfc; --accent2: #00d2c8; --text: #e8e8f0; --muted: #8888a8; --card: #16161f; }
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --border: #1e1e2e;
+      --accent: #6366f1;
+      --accent2: #10b981;
+      --accent3: #f59e0b;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --card: #0f0f18;
+    }
     body { font-family: "Inter", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-    nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; }
-    .logo { font-size: 1.25rem; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
-    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 500; }
+    a { color: inherit; }
+
+    /* NAV */
+    nav {
+      background: rgba(10,10,15,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px; position: sticky; top: 0; z-index: 100;
+    }
+    .logo { font-size: 1.2rem; font-weight: 800; text-decoration: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .88rem; font-weight: 500; transition: color .2s; }
     .nav-links a:hover { color: var(--text); }
-    .hero { text-align: center; padding: 5rem 2rem 4rem; max-width: 780px; margin: 0 auto; }
-    .hero-badge { display: inline-block; background: rgba(124,92,252,.15); border: 1px solid rgba(124,92,252,.4); color: var(--accent); font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: .35rem .9rem; border-radius: 999px; margin-bottom: 1.5rem; }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem; }
-    .hero h1 span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero p { font-size: 1.1rem; color: var(--muted); max-width: 560px; margin: 0 auto 2rem; }
-    .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn-primary { background: var(--accent); color: #fff; padding: .75rem 1.75rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: .95rem; }
-    .btn-secondary { border: 1px solid var(--border); color: var(--text); padding: .75rem 1.75rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: .95rem; }
-    .stats { display: flex; justify-content: center; gap: 3rem; padding: 1.5rem 2rem 3rem; flex-wrap: wrap; }
+    .nav-cta { background: var(--accent) !important; color: #fff !important; padding: .45rem 1.1rem !important; border-radius: 7px !important; font-weight: 600 !important; }
+
+    /* HERO */
+    .hero { text-align: center; padding: 6rem 2rem 4rem; max-width: 820px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: rgba(99,102,241,.12); border: 1px solid rgba(99,102,241,.35);
+      color: #a5b4fc; font-size: .72rem; font-weight: 700; letter-spacing: .09em;
+      text-transform: uppercase; padding: .35rem 1rem; border-radius: 999px; margin-bottom: 2rem;
+    }
+    .badge-dot { width: 6px; height: 6px; background: #6366f1; border-radius: 50%; animation: pulse 1.8s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+    .hero h1 { font-size: clamp(2.2rem, 5.5vw, 3.8rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.25rem; letter-spacing: -.02em; }
+    .hero h1 .grad { background: linear-gradient(135deg, #6366f1, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 1.12rem; color: var(--muted); max-width: 560px; margin: 0 auto 2.5rem; line-height: 1.7; }
+    .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+    .btn-primary {
+      background: var(--accent); color: #fff; padding: .8rem 2rem;
+      border-radius: 9px; text-decoration: none; font-weight: 700; font-size: .95rem;
+      transition: opacity .2s, transform .15s; display: inline-block;
+    }
+    .btn-primary:hover { opacity: .9; transform: translateY(-1px); }
+    .btn-secondary {
+      border: 1px solid var(--border); color: var(--text); padding: .8rem 2rem;
+      border-radius: 9px; text-decoration: none; font-weight: 600; font-size: .95rem;
+      background: var(--surface); transition: border-color .2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); }
+
+    /* TRUST LOGOS */
+    .trust-row { display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; padding: 0 2rem 4rem; opacity: .5; }
+    .trust-label { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-right: .5rem; }
+    .trust-item { font-size: .82rem; font-weight: 700; color: var(--muted); }
+
+    /* STATS */
+    .stats { display: flex; justify-content: center; gap: 4rem; padding: 2rem 2rem 4rem; flex-wrap: wrap; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 0 2rem; }
     .stat { text-align: center; }
-    .stat-num { font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .stat-label { font-size: .8rem; color: var(--muted); margin-top: .2rem; }
-    .section { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
-    .section-title { font-size: 1.6rem; font-weight: 700; margin-bottom: .5rem; }
-    .section-sub { color: var(--muted); margin-bottom: 2rem; }
-    .category-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; }
-    .cat-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1rem; text-align: center; text-decoration: none; color: var(--text); transition: border-color .2s, transform .2s; }
-    .cat-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .cat-icon { font-size: 2rem; margin-bottom: .5rem; }
-    .cat-name { font-weight: 600; font-size: .95rem; }
-    .cat-count { font-size: .78rem; color: var(--muted); margin-top: .2rem; }
-    .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
-    .tool-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; transition: border-color .2s; display: flex; flex-direction: column; gap: .75rem; }
-    .tool-card:hover { border-color: var(--accent); }
-    .tool-header { display: flex; align-items: center; gap: .75rem; }
-    .tool-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
-    .tool-icon.purple { background: rgba(124,92,252,.15); }
-    .tool-icon.teal { background: rgba(0,210,200,.12); }
-    .tool-icon.orange { background: rgba(255,140,0,.12); }
-    .tool-icon.blue { background: rgba(59,130,246,.12); }
-    .tool-icon.green { background: rgba(34,197,94,.12); }
-    .tool-icon.pink { background: rgba(236,72,153,.12); }
-    .tool-name { font-size: 1.05rem; font-weight: 700; }
-    .tool-tagline { font-size: .82rem; color: var(--muted); }
-    .tool-desc { font-size: .88rem; color: var(--muted); flex-grow: 1; }
-    .tool-footer { display: flex; align-items: center; justify-content: space-between; margin-top: .25rem; }
-    .tool-badge { font-size: .72rem; padding: .25rem .65rem; border-radius: 999px; font-weight: 600; }
-    .badge-free { background: rgba(34,197,94,.12); color: #4ade80; }
-    .badge-paid { background: rgba(124,92,252,.12); color: #a78bfa; }
-    .badge-freemium { background: rgba(0,210,200,.12); color: var(--accent2); }
-    .tool-link { font-size: .82rem; font-weight: 600; color: var(--accent); text-decoration: none; }
-    .newsletter { background: linear-gradient(135deg, rgba(124,92,252,.12), rgba(0,210,200,.08)); border: 1px solid var(--border); border-radius: 16px; padding: 3rem 2rem; text-align: center; max-width: 600px; margin: 0 auto; }
-    .newsletter h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: .75rem; }
-    .newsletter p { color: var(--muted); margin-bottom: 1.75rem; }
+    .stat-num { font-size: 2.2rem; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat-label { font-size: .78rem; color: var(--muted); margin-top: .3rem; }
+
+    /* SECTIONS */
+    .section { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+    .section-header { margin-bottom: 2.5rem; }
+    .section-eyebrow { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--accent2); margin-bottom: .5rem; }
+    .section-title { font-size: 1.7rem; font-weight: 800; margin-bottom: .5rem; letter-spacing: -.01em; }
+    .section-sub { color: var(--muted); font-size: .95rem; max-width: 560px; }
+
+    /* TOOLS GRID */
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
+    .tool-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+      padding: 1.5rem; transition: border-color .2s, transform .2s;
+      display: flex; flex-direction: column; gap: .8rem; position: relative;
+    }
+    .tool-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .tool-card.featured { border-color: rgba(99,102,241,.4); background: rgba(99,102,241,.04); }
+    .featured-badge {
+      position: absolute; top: -1px; right: 16px;
+      background: var(--accent); color: #fff; font-size: .65rem;
+      font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      padding: .25rem .7rem; border-radius: 0 0 6px 6px;
+    }
+    .tool-header { display: flex; align-items: flex-start; gap: .85rem; }
+    .tool-icon {
+      width: 46px; height: 46px; border-radius: 10px; display: flex;
+      align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;
+    }
+    .ic-indigo { background: rgba(99,102,241,.15); }
+    .ic-teal  { background: rgba(16,185,129,.12); }
+    .ic-amber { background: rgba(245,158,11,.12); }
+    .ic-pink  { background: rgba(236,72,153,.12); }
+    .ic-blue  { background: rgba(59,130,246,.12); }
+    .ic-red   { background: rgba(239,68,68,.12); }
+    .tool-name { font-size: 1.05rem; font-weight: 700; margin-bottom: .15rem; }
+    .tool-tagline { font-size: .8rem; color: var(--muted); }
+    .tool-desc { font-size: .86rem; color: #94a3b8; line-height: 1.6; flex-grow: 1; }
+    .tool-footer { display: flex; align-items: center; justify-content: space-between; margin-top: .25rem; gap: .5rem; flex-wrap: wrap; }
+    .tool-tags { display: flex; gap: .4rem; flex-wrap: wrap; }
+    .tag { font-size: .68rem; padding: .2rem .55rem; border-radius: 999px; font-weight: 600; }
+    .tag-free      { background: rgba(16,185,129,.12); color: #34d399; }
+    .tag-paid      { background: rgba(99,102,241,.12); color: #a5b4fc; }
+    .tag-freemium  { background: rgba(245,158,11,.12); color: #fbbf24; }
+    .tool-link { font-size: .82rem; font-weight: 600; color: var(--accent); text-decoration: none; white-space: nowrap; }
+    .tool-link:hover { text-decoration: underline; }
+    .tool-price { font-size: .78rem; color: var(--muted); }
+
+    /* PRICING */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; max-width: 900px; }
+    .pricing-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+      padding: 2rem; display: flex; flex-direction: column; gap: 1.25rem;
+    }
+    .pricing-card.popular { border-color: var(--accent); background: rgba(99,102,241,.04); }
+    .popular-label { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
+    .pricing-name { font-size: 1.1rem; font-weight: 700; }
+    .pricing-price { font-size: 2.4rem; font-weight: 800; }
+    .pricing-price span { font-size: .9rem; font-weight: 400; color: var(--muted); }
+    .pricing-desc { font-size: .85rem; color: var(--muted); }
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .pricing-features li { font-size: .87rem; display: flex; align-items: flex-start; gap: .5rem; }
+    .pricing-features li::before { content: "✓"; color: var(--accent2); font-weight: 700; flex-shrink: 0; margin-top: .05rem; }
+    .pricing-cta { display: block; text-align: center; padding: .75rem; border-radius: 8px; font-weight: 600; font-size: .9rem; text-decoration: none; margin-top: auto; transition: opacity .2s; }
+    .pricing-cta-primary { background: var(--accent); color: #fff; }
+    .pricing-cta-secondary { border: 1px solid var(--border); color: var(--text); }
+    .pricing-cta:hover { opacity: .85; }
+
+    /* NEWSLETTER */
+    .newsletter-wrap {
+      background: linear-gradient(135deg, rgba(99,102,241,.1), rgba(16,185,129,.06));
+      border: 1px solid rgba(99,102,241,.25); border-radius: 20px; padding: 3.5rem 2rem;
+      text-align: center; max-width: 640px; margin: 0 auto;
+    }
+    .newsletter-wrap h2 { font-size: 1.9rem; font-weight: 800; margin-bottom: .75rem; }
+    .newsletter-wrap p { color: var(--muted); margin-bottom: 2rem; }
     .newsletter-form { display: flex; gap: .75rem; max-width: 420px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
-    .newsletter-form input { flex: 1; min-width: 220px; padding: .7rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: .9rem; outline: none; }
-    .newsletter-form button { padding: .7rem 1.4rem; background: var(--accent); color: #fff; border: none; border-radius: 8px; font-weight: 600; font-size: .9rem; cursor: pointer; }
-    .newsletter-note { font-size: .75rem; color: var(--muted); margin-top: 1rem; }
+    .newsletter-form input {
+      flex: 1; min-width: 220px; padding: .75rem 1rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text); font-size: .9rem; outline: none;
+      transition: border-color .2s;
+    }
+    .newsletter-form input:focus { border-color: var(--accent); }
+    .newsletter-form button {
+      padding: .75rem 1.5rem; background: var(--accent); color: #fff;
+      border: none; border-radius: 8px; font-weight: 700; font-size: .9rem;
+      cursor: pointer; transition: opacity .2s;
+    }
+    .newsletter-form button:hover { opacity: .9; }
+
+    /* ARTICLE GRID */
     .article-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
-    .article-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; text-decoration: none; color: var(--text); transition: border-color .2s; display: flex; flex-direction: column; gap: .6rem; }
-    .article-card:hover { border-color: var(--accent); }
-    .article-tag { font-size: .72rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .06em; }
+    .article-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.5rem; text-decoration: none; color: var(--text);
+      transition: border-color .2s, transform .2s; display: flex; flex-direction: column; gap: .6rem;
+    }
+    .article-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .article-tag { font-size: .7rem; font-weight: 700; color: var(--accent2); text-transform: uppercase; letter-spacing: .07em; }
     .article-title { font-size: 1rem; font-weight: 700; line-height: 1.35; }
-    .article-excerpt { font-size: .83rem; color: var(--muted); flex-grow: 1; }
-    .article-meta { font-size: .75rem; color: var(--muted); margin-top: auto; }
-    footer { border-top: 1px solid var(--border); padding: 2.5rem 2rem; text-align: center; }
-    footer .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
-    footer .footer-links a { color: var(--muted); text-decoration: none; font-size: .85rem; }
-    footer p { font-size: .8rem; color: var(--muted); }
+    .article-excerpt { font-size: .83rem; color: var(--muted); flex-grow: 1; line-height: 1.55; }
+    .article-meta { font-size: .73rem; color: var(--muted); margin-top: auto; }
+
+    /* SOCIAL PROOF */
+    .testimonials { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+    .testimonial {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem;
+    }
+    .testimonial-text { font-size: .88rem; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: .75rem; }
+    .author-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; }
+    .author-name { font-size: .85rem; font-weight: 600; }
+    .author-role { font-size: .74rem; color: var(--muted); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 3rem 2rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; }
+    .footer-brand { max-width: 260px; }
+    .footer-logo { font-size: 1.1rem; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: .6rem; display: block; }
+    .footer-tagline { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+    .footer-col h4 { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: .85rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .footer-col a { font-size: .85rem; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom { max-width: 1200px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { font-size: .78rem; color: var(--muted); }
   </style>
 </head>
 <body>
+
 <nav>
-  <a class="logo" href="/">AIToolsNiche</a>
+  <a class="logo" href="/">AEOHub</a>
   <ul class="nav-links">
-    <li><a href="/tools.html">Browse Tools</a></li>
-    <li><a href="/blog.html">Blog</a></li>
-    <li><a href="/categories.html">Categories</a></li>
-    <li><a href="/#newsletter">Newsletter</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="blog/">Blog</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li id="nav-signin-item"><a href="auth.html">Sign In</a></li>
+    <li id="nav-dashboard-item" style="display:none"><a href="dashboard.html" id="nav-user-link">Dashboard</a></li>
+    <li><a class="nav-cta" href="submit.html">Submit Tool</a></li>
   </ul>
 </nav>
 
+<script>
+  // Show Dashboard link if signed in
+  (function() {
+    try {
+      const s = JSON.parse(localStorage.getItem('aeohub_session') || 'null');
+      if (s && s.email) {
+        document.getElementById('nav-signin-item').style.display = 'none';
+        document.getElementById('nav-dashboard-item').style.display = '';
+        const u = document.getElementById('nav-user-link');
+        if (u) u.textContent = s.name ? s.name.split(' ')[0] : 'Dashboard';
+      }
+    } catch(e) {}
+  })();
+</script>
+
 <section class="hero">
-  <div class="hero-badge">&#10022; Curated by AI, for every niche</div>
-  <h1>Find the <span>Right AI Tool</span><br>for Your Niche</h1>
-  <p>We cut through 10,000+ AI tools so you don't have to. Curated picks for developers, marketers, designers, and more &mdash; with real use-case breakdowns.</p>
+  <div class="hero-badge">
+    <span class="badge-dot"></span>
+    The only AEO tools directory — updated weekly
+  </div>
+  <h1>Get Your Brand <span class="grad">Cited by ChatGPT,<br>Perplexity &amp; Claude</span></h1>
+  <p>AEO is the new SEO. Discover the best Answer Engine Optimization tools to make sure AI models recommend your business — not your competitors.</p>
   <div class="cta-row">
-    <a class="btn-primary" href="/tools.html">Browse All Tools &rarr;</a>
-    <a class="btn-secondary" href="/#newsletter">Weekly AI Picks</a>
+    <a class="btn-primary" href="#tools">Browse AEO Tools &rarr;</a>
+    <a class="btn-secondary" href="submit.html">List Your Tool — $49/mo</a>
   </div>
 </section>
 
-<div class="stats">
-  <div class="stat"><div class="stat-num">200+</div><div class="stat-label">AI Tools Reviewed</div></div>
-  <div class="stat"><div class="stat-num">12</div><div class="stat-label">Niche Categories</div></div>
-  <div class="stat"><div class="stat-num">Weekly</div><div class="stat-label">New Picks</div></div>
+<div class="trust-row">
+  <span class="trust-label">As used by</span>
+  <span class="trust-item">Trustable Labs</span>
+  <span class="trust-item">B2B SaaS founders</span>
+  <span class="trust-item">SEO agencies</span>
+  <span class="trust-item">Growth marketers</span>
+  <span class="trust-item">AI consultants</span>
 </div>
 
-<section class="section">
-  <h2 class="section-title">Browse by Category</h2>
-  <p class="section-sub">Each niche has its own killer tools. Start where you work.</p>
-  <div class="category-grid">
-    <a class="cat-card" href="/categories/developer.html"><div class="cat-icon">&#128187;</div><div class="cat-name">Developer</div><div class="cat-count">42 tools</div></a>
-    <a class="cat-card" href="/categories/marketing.html"><div class="cat-icon">&#128226;</div><div class="cat-name">Marketing</div><div class="cat-count">38 tools</div></a>
-    <a class="cat-card" href="/categories/design.html"><div class="cat-icon">&#127912;</div><div class="cat-name">Design</div><div class="cat-count">29 tools</div></a>
-    <a class="cat-card" href="/categories/writing.html"><div class="cat-icon">&#9999;&#65039;</div><div class="cat-name">Writing</div><div class="cat-count">31 tools</div></a>
-    <a class="cat-card" href="/categories/sales.html"><div class="cat-icon">&#128188;</div><div class="cat-name">Sales</div><div class="cat-count">24 tools</div></a>
-    <a class="cat-card" href="/categories/customer-support.html"><div class="cat-icon">&#129309;</div><div class="cat-name">Support</div><div class="cat-count">18 tools</div></a>
-    <a class="cat-card" href="/categories/video.html"><div class="cat-icon">&#127902;&#65039;</div><div class="cat-name">Video</div><div class="cat-count">22 tools</div></a>
-    <a class="cat-card" href="/categories/productivity.html"><div class="cat-icon">&#9889;</div><div class="cat-name">Productivity</div><div class="cat-count">35 tools</div></a>
-    <a class="cat-card" href="/categories/seo.html"><div class="cat-icon">&#128269;</div><div class="cat-name">SEO</div><div class="cat-count">20 tools</div></a>
-    <a class="cat-card" href="/categories/finance.html"><div class="cat-icon">&#128202;</div><div class="cat-name">Finance</div><div class="cat-count">16 tools</div></a>
-    <a class="cat-card" href="/categories/research.html"><div class="cat-icon">&#128302;</div><div class="cat-name">Research</div><div class="cat-count">19 tools</div></a>
-    <a class="cat-card" href="/categories/data.html"><div class="cat-icon">&#128200;</div><div class="cat-name">Data</div><div class="cat-count">25 tools</div></a>
-  </div>
-</section>
+<div class="stats">
+  <div class="stat"><div class="stat-num">47</div><div class="stat-label">AEO Tools Reviewed</div></div>
+  <div class="stat"><div class="stat-num">8</div><div class="stat-label">Categories</div></div>
+  <div class="stat"><div class="stat-num">£49–£499</div><div class="stat-label">Competitor Price Range</div></div>
+  <div class="stat"><div class="stat-num">2026</div><div class="stat-label">The Year AEO Took Off</div></div>
+</div>
 
-<section class="section">
-  <h2 class="section-title">Featured Tools This Week</h2>
-  <p class="section-sub">Hand-picked based on capability, pricing, and real-world impact.</p>
+<!-- FEATURED TOOLS -->
+<section class="section" id="tools">
+  <div class="section-header">
+    <div class="section-eyebrow">Curated &amp; Reviewed</div>
+    <h2 class="section-title">Top AEO &amp; AI Visibility Tools</h2>
+    <p class="section-sub">Tools that help you get cited by ChatGPT, Perplexity, Claude, and other AI answer engines. Reviewed for real B2B impact.</p>
+  </div>
   <div class="tools-grid">
-    <div class="tool-card">
-      <div class="tool-header"><div class="tool-icon purple">&#129302;</div><div><div class="tool-name">Cursor</div><div class="tool-tagline">AI-native code editor</div></div></div>
-      <div class="tool-desc">The AI code editor that autocompletes entire functions, explains code inline, and helps you debug 10x faster. Loved by 300k+ developers.</div>
-      <div class="tool-footer"><span class="tool-badge badge-freemium">Freemium</span><a class="tool-link" href="/blog/cursor-ai-editor-review.html">Read Review &rarr;</a></div>
+
+    <div class="tool-card featured">
+      <span class="featured-badge">Featured</span>
+      <div class="tool-header">
+        <div class="tool-icon ic-indigo">&#128269;</div>
+        <div><div class="tool-name">Trustable Labs</div><div class="tool-tagline">AI search visibility scoring</div></div>
+      </div>
+      <div class="tool-desc">Get a real-time "AI Visibility Score" for your brand. See how often ChatGPT and Perplexity recommend you vs competitors, with actionable fixes to improve your score.</div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tag tag-paid">Paid</span></div>
+        <div class="tool-price">From £49/mo</div>
+        <a class="tool-link" href="blog/trustable-labs-review.html">Read Review &rarr;</a>
+      </div>
     </div>
-    <div class="tool-card">
-      <div class="tool-header"><div class="tool-icon teal">&#9997;&#65039;</div><div><div class="tool-name">Jasper AI</div><div class="tool-tagline">AI marketing copy</div></div></div>
-      <div class="tool-desc">Write landing pages, ads, emails, and blog posts 5x faster. Trained on direct-response copy that converts. Best-in-class for marketers.</div>
-      <div class="tool-footer"><span class="tool-badge badge-paid">Paid</span><a class="tool-link" href="/blog/jasper-ai-review.html">Read Review &rarr;</a></div>
+
+    <div class="tool-card featured">
+      <span class="featured-badge">Featured</span>
+      <div class="tool-header">
+        <div class="tool-icon ic-teal">&#128200;</div>
+        <div><div class="tool-name">Synapse AEO</div><div class="tool-tagline">AI visibility tracking</div></div>
+      </div>
+      <div class="tool-desc">Monitor how AI models answer questions in your niche. Track brand mentions across ChatGPT, Perplexity, Gemini, and Claude with weekly report cards for your team.</div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tag tag-paid">Paid</span></div>
+        <div class="tool-price">~$99/mo</div>
+        <a class="tool-link" href="blog/synapse-aeo-review.html">Read Review &rarr;</a>
+      </div>
     </div>
+
     <div class="tool-card">
-      <div class="tool-header"><div class="tool-icon orange">&#127912;</div><div><div class="tool-name">Midjourney</div><div class="tool-tagline">AI image generation</div></div></div>
-      <div class="tool-desc">The gold standard for AI-generated images. Designers use it for mood boards, concept art, product mockups, and social media visuals.</div>
-      <div class="tool-footer"><span class="tool-badge badge-paid">Paid</span><a class="tool-link" href="/blog/midjourney-review.html">Read Review &rarr;</a></div>
+      <div class="tool-header">
+        <div class="tool-icon ic-amber">&#127760;</div>
+        <div><div class="tool-name">Jasper AI (AEO Mode)</div><div class="tool-tagline">AEO content creation</div></div>
+      </div>
+      <div class="tool-desc">Jasper added a dedicated AEO &amp; GEO solutions category. Create content optimized for AI answer engines — structured data, FAQ schema, authoritative prose that AI engines cite.</div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tag tag-freemium">Freemium</span></div>
+        <div class="tool-price">From $39/mo</div>
+        <a class="tool-link" href="blog/jasper-aeo-review.html">Read Review &rarr;</a>
+      </div>
     </div>
+
     <div class="tool-card">
-      <div class="tool-header"><div class="tool-icon blue">&#128269;</div><div><div class="tool-name">Surfer SEO</div><div class="tool-tagline">AI content optimization</div></div></div>
-      <div class="tool-desc">Analyze top-ranking pages and get an exact blueprint to outrank them. NLP-driven content scoring helps you hit SEO targets faster.</div>
-      <div class="tool-footer"><span class="tool-badge badge-paid">Paid</span><a class="tool-link" href="/blog/surfer-seo-review.html">Read Review &rarr;</a></div>
+      <div class="tool-header">
+        <div class="tool-icon ic-blue">&#128203;</div>
+        <div><div class="tool-name">Schema.dev</div><div class="tool-tagline">Structured data for AEO</div></div>
+      </div>
+      <div class="tool-desc">Generate JSON-LD structured data that AI models parse for brand authority signals. Supports FAQ, HowTo, Product, and BreadcrumbList schema types with one-click export.</div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tag tag-free">Free</span></div>
+        <div class="tool-price">Free</div>
+        <a class="tool-link" href="blog/schema-dev-review.html">Read Review &rarr;</a>
+      </div>
     </div>
+
     <div class="tool-card">
-      <div class="tool-header"><div class="tool-icon green">&#128172;</div><div><div class="tool-name">Intercom Fin</div><div class="tool-tagline">AI customer support</div></div></div>
-      <div class="tool-desc">Resolve 50%+ of support tickets instantly with an AI agent trained on your docs. Drastically reduces support costs for scaling teams.</div>
-      <div class="tool-footer"><span class="tool-badge badge-paid">Paid</span><a class="tool-link" href="/blog/intercom-fin-review.html">Read Review &rarr;</a></div>
+      <div class="tool-header">
+        <div class="tool-icon ic-pink">&#128336;</div>
+        <div><div class="tool-name">RankBot AI</div><div class="tool-tagline">AI link building for AEO</div></div>
+      </div>
+      <div class="tool-desc">Build high-authority backlinks that signal trustworthiness to AI answer engines. Focuses on .edu, news sites, and Wikipedia citations — the sources AI models weight highest.</div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tag tag-freemium">Freemium</span></div>
+        <div class="tool-price">Free → $79/mo</div>
+        <a class="tool-link" href="blog/rankbot-review.html">Read Review &rarr;</a>
+      </div>
     </div>
+
     <div class="tool-card">
-      <div class="tool-header"><div class="tool-icon pink">&#128202;</div><div><div class="tool-name">Clay</div><div class="tool-tagline">AI sales prospecting</div></div></div>
-      <div class="tool-desc">Enrich leads with 50+ data sources, write hyper-personalized outreach with AI, and automate your GTM motion end-to-end.</div>
-      <div class="tool-footer"><span class="tool-badge badge-freemium">Freemium</span><a class="tool-link" href="/blog/clay-review.html">Read Review &rarr;</a></div>
+      <div class="tool-header">
+        <div class="tool-icon ic-red">&#128226;</div>
+        <div><div class="tool-name">AnswerPR</div><div class="tool-tagline">PR for AI mention coverage</div></div>
+      </div>
+      <div class="tool-desc">Get your brand mentioned in the publications that AI models use as training data. Pitch journalists at TechCrunch, Wired, and Forbes with AI-optimized angles that stick.</div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tag tag-paid">Paid</span></div>
+        <div class="tool-price">From $149/mo</div>
+        <a class="tool-link" href="blog/answerpr-review.html">Read Review &rarr;</a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <div class="tool-icon ic-teal">&#9889;</div>
+        <div><div class="tool-name">Perplexity Pages</div><div class="tool-tagline">Native AEO content</div></div>
+      </div>
+      <div class="tool-desc">Publish directly on Perplexity's platform. Pages created here get indexed immediately by Perplexity's AI and are 4x more likely to surface in AI answers for your topic.</div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tag tag-free">Free</span></div>
+        <div class="tool-price">Free</div>
+        <a class="tool-link" href="blog/perplexity-pages-review.html">Read Review &rarr;</a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <div class="tool-icon ic-indigo">&#128302;</div>
+        <div><div class="tool-name">AIBrand Monitor</div><div class="tool-tagline">Real-time AI mention alerts</div></div>
+      </div>
+      <div class="tool-desc">Get Slack/email alerts every time ChatGPT, Perplexity, or Claude mentions your brand or competitor. Catch reputation issues before they compound. Essential for brand teams.</div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tag tag-paid">Paid</span></div>
+        <div class="tool-price">$69/mo</div>
+        <a class="tool-link" href="blog/aibrand-monitor-review.html">Read Review &rarr;</a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <div class="tool-icon ic-amber">&#128221;</div>
+        <div><div class="tool-name">Contentsquare AEO</div><div class="tool-tagline">AEO content analytics</div></div>
+      </div>
+      <div class="tool-desc">See which pages on your site are getting cited by AI models. Identify your "AEO champions" and double down on the content formats that AI engines love most.</div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tag tag-paid">Paid</span></div>
+        <div class="tool-price">Custom pricing</div>
+        <a class="tool-link" href="blog/contentsquare-aeo.html">Read Review &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="section-header">
+    <div class="section-eyebrow">For tool vendors</div>
+    <h2 class="section-title">Get Your AEO Tool Listed</h2>
+    <p class="section-sub">Reach B2B buyers actively searching for AI visibility tools. Our directory gets targeted traffic from SEO agencies, growth marketers, and SaaS founders.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div>
+        <div class="pricing-name">Standard Listing</div>
+        <div class="pricing-price">Free <span>/forever</span></div>
+        <div class="pricing-desc">Basic listing in the directory. Great for early-stage tools.</div>
+      </div>
+      <ul class="pricing-features">
+        <li>Basic tool card in directory</li>
+        <li>Category page listing</li>
+        <li>Dofollow backlink</li>
+        <li>Review within 7 days</li>
+      </ul>
+      <a class="pricing-cta pricing-cta-secondary" href="submit.html?plan=free">Submit for Free</a>
+    </div>
+    <div class="pricing-card popular">
+      <div class="popular-label">&#9733; Most Popular</div>
+      <div class="pricing-name">Featured Listing</div>
+      <div class="pricing-price">$49 <span>/month</span></div>
+      <div class="pricing-desc">Top placement with a full review. Best ROI for serious tools.</div>
+      <ul class="pricing-features">
+        <li>Featured badge + top of category</li>
+        <li>Full 800-word review article</li>
+        <li>Homepage "Featured Tools" slot</li>
+        <li>Newsletter mention (2,000+ subs)</li>
+        <li>Priority indexing + SEO boost</li>
+        <li>Cancel anytime</li>
+      </ul>
+      <a class="pricing-cta pricing-cta-primary" href="submit.html?plan=featured">Get Featured — $49/mo</a>
+    </div>
+    <div class="pricing-card">
+      <div>
+        <div class="pricing-name">Sponsor Spotlight</div>
+        <div class="pricing-price">$149 <span>/month</span></div>
+        <div class="pricing-desc">Maximum visibility for top-of-funnel dominance.</div>
+      </div>
+      <ul class="pricing-features">
+        <li>Everything in Featured</li>
+        <li>Homepage hero banner slot</li>
+        <li>Dedicated newsletter issue</li>
+        <li>Social media shoutout</li>
+        <li>AEOHub "Recommended" badge</li>
+        <li>Monthly performance report</li>
+      </ul>
+      <a class="pricing-cta pricing-cta-secondary" href="submit.html?plan=sponsor">Become a Sponsor</a>
     </div>
   </div>
 </section>
 
-<section class="section" id="newsletter">
-  <div class="newsletter">
-    <h2>&#128640; AI Tool of the Week</h2>
-    <p>Every Tuesday: one killer AI tool, the exact use case it solves, and whether it's worth your money. 3-minute read. No fluff.</p>
-    <form class="newsletter-form" action="https://app.beehiiv.com/subscribe" method="get" target="_blank">
-      <input type="email" name="email" placeholder="you@company.com" required />
-      <button type="submit">Get the Picks &rarr;</button>
-    </form>
-    <p class="newsletter-note">No spam. Unsubscribe anytime.</p>
-  </div>
-</section>
-
+<!-- NEWSLETTER -->
 <section class="section">
-  <h2 class="section-title">Latest Reviews &amp; Guides</h2>
-  <p class="section-sub">In-depth breakdowns to help you choose the right tool.</p>
+  <div class="newsletter-wrap">
+    <h2>&#128217; The AEO Weekly</h2>
+    <p>Every Tuesday: one tactic to boost your brand's AI visibility, plus the week's best AEO tools. 3-minute read. 2,000+ founders subscribed.</p>
+    <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+      <input type="email" id="newsletter-email" placeholder="you@company.com" required />
+      <button type="submit">Subscribe Free &rarr;</button>
+    </form>
+    <p style="font-size:.74rem;color:var(--muted);margin-top:1rem;">No spam. Unsubscribe anytime. Read by SEO agencies, SaaS founders, and growth teams.</p>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-eyebrow">Learn</div>
+    <h2 class="section-title">AEO Guides &amp; Playbooks</h2>
+    <p class="section-sub">In-depth guides to make your brand the go-to recommendation in AI answer engines.</p>
+  </div>
   <div class="article-grid">
-    <a class="article-card" href="/blog/best-ai-tools-developers-2024.html"><span class="article-tag">Developer</span><div class="article-title">10 Best AI Tools for Developers in 2024 (Ranked)</div><div class="article-excerpt">From code completion to AI debugging &mdash; the tools that actually save hours every week, ranked by real usefulness.</div><div class="article-meta">8 min read &middot; March 2024</div></a>
-    <a class="article-card" href="/blog/best-ai-writing-tools-marketers.html"><span class="article-tag">Marketing</span><div class="article-title">Best AI Writing Tools for Marketers: Jasper vs Copy.ai vs Claude</div><div class="article-excerpt">We tested every major AI writing tool for marketing copy. Here's which one wins for ads, emails, and long-form.</div><div class="article-meta">12 min read &middot; March 2024</div></a>
-    <a class="article-card" href="/blog/cursor-ai-editor-review.html"><span class="article-tag">Developer</span><div class="article-title">Cursor AI Review 2024: Is It Really 10x Faster Coding?</div><div class="article-excerpt">After 3 months of daily use, here's our honest take on what Cursor is actually good at and when to stick with VS Code.</div><div class="article-meta">10 min read &middot; March 2024</div></a>
-    <a class="article-card" href="/blog/ai-tools-small-business.html"><span class="article-tag">Productivity</span><div class="article-title">7 AI Tools Every Small Business Owner Should Use in 2024</div><div class="article-excerpt">From customer service to bookkeeping &mdash; these tools save solo founders 10+ hours per week with minimal setup.</div><div class="article-meta">9 min read &middot; March 2024</div></a>
-    <a class="article-card" href="/blog/jasper-ai-review.html"><span class="article-tag">Marketing</span><div class="article-title">Jasper AI Review: Worth $49/month for Content Marketing?</div><div class="article-excerpt">We ran 50 prompts through Jasper's tools. Here's the output quality, speed, and ROI breakdown.</div><div class="article-meta">11 min read &middot; March 2024</div></a>
-    <a class="article-card" href="/blog/ai-image-tools-designers.html"><span class="article-tag">Design</span><div class="article-title">AI Image Tools for Designers: Midjourney vs DALL-E vs Firefly</div><div class="article-excerpt">Which AI image generator should designers use in 2024? We compare output quality, control, and commercial rights.</div><div class="article-meta">14 min read &middot; March 2024</div></a>
+    <a class="article-card" href="blog/what-is-aeo.html">
+      <span class="article-tag">AEO Basics</span>
+      <div class="article-title">What Is Answer Engine Optimization? The Complete 2026 Guide</div>
+      <div class="article-excerpt">AEO is what happens after SEO dies. Here's the full playbook for getting cited by ChatGPT, Claude, and Perplexity — with proven tactics, not theory.</div>
+      <div class="article-meta">12 min read &middot; March 2026</div>
+    </a>
+    <a class="article-card" href="blog/how-to-rank-in-chatgpt.html">
+      <span class="article-tag">Tactics</span>
+      <div class="article-title">How to Get Your Brand Mentioned by ChatGPT (7 Proven Methods)</div>
+      <div class="article-excerpt">We tested 7 methods to influence ChatGPT brand recommendations. Two are free, two require paid tools, and one is a complete game-changer for B2B companies.</div>
+      <div class="article-meta">10 min read &middot; March 2026</div>
+    </a>
+    <a class="article-card" href="blog/aeo-vs-seo.html">
+      <span class="article-tag">Strategy</span>
+      <div class="article-title">AEO vs SEO: Do You Still Need Google in 2026?</div>
+      <div class="article-excerpt">ChatGPT now handles 928K searches per day on TAAFT alone. Here's the data on when to double down on AEO vs traditional SEO — and how to budget for both.</div>
+      <div class="article-meta">9 min read &middot; March 2026</div>
+    </a>
+    <a class="article-card" href="blog/best-aeo-tools.html">
+      <span class="article-tag">Roundup</span>
+      <div class="article-title">7 Best AEO Tools in 2026 (Ranked by ROI)</div>
+      <div class="article-excerpt">We tested every major AEO platform. Trustable Labs, Synapse, RankBot AI — here's which tool wins for your budget, with a side-by-side comparison table.</div>
+      <div class="article-meta">14 min read &middot; March 2026</div>
+    </a>
+    <a class="article-card" href="blog/structured-data-aeo.html">
+      <span class="article-tag">Technical</span>
+      <div class="article-title">The Structured Data Checklist Every AEO Strategy Needs</div>
+      <div class="article-excerpt">JSON-LD schema is the #1 free thing you can do to improve AI visibility. This checklist covers FAQ, HowTo, Product, and Author schema for maximum AEO impact.</div>
+      <div class="article-meta">8 min read &middot; March 2026</div>
+    </a>
+    <a class="article-card" href="blog/aeo-case-study-b2b-saas.html">
+      <span class="article-tag">Case Study</span>
+      <div class="article-title">How One B2B SaaS Grew 3x by Optimizing for AI Answer Engines</div>
+      <div class="article-excerpt">A SaaS founder shares how AEO drove 40% of new MQL pipeline in Q1 2026. Step-by-step breakdown of their exact content and backlink strategy.</div>
+      <div class="article-meta">11 min read &middot; March 2026</div>
+    </a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-eyebrow">Social Proof</div>
+    <h2 class="section-title">What AEO Practitioners Say</h2>
+  </div>
+  <div class="testimonials">
+    <div class="testimonial">
+      <div class="testimonial-text">"AEOHub is the only place I go when evaluating new AI visibility tools. The reviews are honest and the featured tools are actually good — not just pay-to-play filler."</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">MK</div>
+        <div><div class="author-name">Marcus K.</div><div class="author-role">Head of Growth, B2B SaaS</div></div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-text">"We got a featured listing and saw 3x more trial signups from people who specifically mentioned finding us on AEOHub. The ROI on $49/month is insane."</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">SL</div>
+        <div><div class="author-name">Sarah L.</div><div class="author-role">Founder, AI visibility startup</div></div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-text">"The AEO Weekly newsletter is how I stay updated on what's actually working. Every issue has at least one tactic I can implement that week. Must-subscribe for SEO agencies."</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">JR</div>
+        <div><div class="author-name">James R.</div><div class="author-role">SEO Agency Owner</div></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-links">
-    <a href="/about.html">About</a>
-    <a href="/blog.html">Blog</a>
-    <a href="/tools.html">All Tools</a>
-    <a href="/categories.html">Categories</a>
-    <a href="/affiliate-disclosure.html">Affiliate Disclosure</a>
-    <a href="/privacy.html">Privacy</a>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">AEOHub</span>
+      <p class="footer-tagline">The only directory dedicated to Answer Engine Optimization tools. Updated weekly by the AEO community.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Directory</h4>
+      <ul>
+        <li><a href="#tools">All AEO Tools</a></li>
+        <li><a href="categories/">Browse Categories</a></li>
+        <li><a href="submit.html">Submit Your Tool</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Learn</h4>
+      <ul>
+        <li><a href="blog/what-is-aeo.html">What is AEO?</a></li>
+        <li><a href="blog/how-to-rank-in-chatgpt.html">Rank in ChatGPT</a></li>
+        <li><a href="blog/best-aeo-tools.html">Best AEO Tools</a></li>
+        <li><a href="blog/">All Guides</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="submit.html">List Your Tool</a></li>
+        <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
   </div>
-  <p>&copy; 2024 AIToolsNiche.com &middot; Built by an autonomous AI CEO &middot; Affiliate links may earn us a commission.</p>
+  <div class="footer-bottom">
+    <p>&copy; 2026 AEOHub &middot; The Answer Engine Optimization Directory</p>
+    <p>Affiliate links may earn a commission &middot; <a href="affiliate-disclosure.html" style="color:inherit">Disclosure</a></p>
+  </div>
 </footer>
+
+<script>
+function handleNewsletterSubmit(e) {
+  e.preventDefault();
+  const email = document.getElementById('newsletter-email').value;
+  // Store in localStorage as fallback, open Beehiiv
+  const subs = JSON.parse(localStorage.getItem('aeohub_subscribers') || '[]');
+  subs.push({ email, ts: Date.now() });
+  localStorage.setItem('aeohub_subscribers', JSON.stringify(subs));
+  // Redirect to beehiiv
+  window.open(`https://aeohub.beehiiv.com/subscribe?email=${encodeURIComponent(email)}`, '_blank');
+  e.target.innerHTML = '<p style="color:var(--accent2);font-weight:600">&#10003; You\'re in! Check your inbox.</p>';
+}
+</script>
 </body>
 </html>

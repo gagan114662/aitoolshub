@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit Your AEO Tool — AEOHub</title>
+  <meta name="description" content="List your Answer Engine Optimization tool on AEOHub. Reach 2,000+ B2B buyers searching for AEO tools." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --surface: #12121a; --border: #1e1e2e;
+      --accent: #6366f1; --accent2: #10b981;
+      --text: #e2e8f0; --muted: #64748b; --card: #0f0f18;
+    }
+    body { font-family: "Inter", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    nav {
+      background: rgba(10,10,15,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px; position: sticky; top: 0; z-index: 100;
+    }
+    .logo { font-size: 1.2rem; font-weight: 800; text-decoration: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-back { color: var(--muted); text-decoration: none; font-size: .88rem; font-weight: 500; display: flex; align-items: center; gap: .4rem; }
+    .nav-back:hover { color: var(--text); }
+
+    .page { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem 5rem; display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; align-items: start; }
+    @media(max-width:760px){ .page { grid-template-columns: 1fr; } }
+
+    /* LEFT: Plan selector */
+    .plans h1 { font-size: 2rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: .75rem; }
+    .plans p { color: var(--muted); margin-bottom: 2rem; font-size: .95rem; line-height: 1.6; }
+
+    .plan-option {
+      border: 2px solid var(--border); border-radius: 14px; padding: 1.5rem;
+      margin-bottom: 1rem; cursor: pointer; transition: border-color .2s, background .2s;
+      position: relative;
+    }
+    .plan-option:hover { border-color: var(--accent); }
+    .plan-option.active { border-color: var(--accent); background: rgba(99,102,241,.05); }
+    .plan-option input[type=radio] { position: absolute; opacity: 0; }
+    .plan-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: .5rem; }
+    .plan-name { font-size: 1rem; font-weight: 700; }
+    .plan-price { font-size: 1.1rem; font-weight: 800; color: var(--accent); }
+    .plan-price span { font-size: .75rem; font-weight: 500; color: var(--muted); }
+    .plan-desc { font-size: .83rem; color: var(--muted); margin-bottom: .85rem; }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
+    .plan-features li { font-size: .82rem; display: flex; gap: .5rem; align-items: flex-start; }
+    .plan-features li::before { content: "✓"; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+    .popular-pill { background: var(--accent); color: #fff; font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: .2rem .6rem; border-radius: 999px; margin-left: .5rem; }
+
+    .guarantee { display: flex; align-items: flex-start; gap: .75rem; background: rgba(16,185,129,.06); border: 1px solid rgba(16,185,129,.2); border-radius: 10px; padding: 1rem 1.25rem; margin-top: 1.5rem; }
+    .guarantee-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .guarantee-text { font-size: .82rem; color: var(--muted); }
+    .guarantee-text strong { color: var(--accent2); display: block; margin-bottom: .2rem; }
+
+    /* RIGHT: Form */
+    .form-card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 2rem; }
+    .form-card h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 1.5rem; }
+    .form-group { margin-bottom: 1.25rem; }
+    label { display: block; font-size: .82rem; font-weight: 600; color: var(--muted); margin-bottom: .4rem; text-transform: uppercase; letter-spacing: .06em; }
+    input[type=text], input[type=email], input[type=url], select, textarea {
+      width: 100%; padding: .75rem 1rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text); font-size: .9rem;
+      font-family: inherit; outline: none; transition: border-color .2s;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+    textarea { resize: vertical; min-height: 80px; }
+    select { appearance: none; cursor: pointer; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media(max-width:480px){ .form-row { grid-template-columns: 1fr; } }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+    .payment-section h3 { font-size: .9rem; font-weight: 700; margin-bottom: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; }
+
+    /* Stripe Buy Button placeholder */
+    .stripe-btn-wrap { margin-bottom: 1.25rem; }
+    .stripe-checkout-btn {
+      display: block; width: 100%; padding: .9rem;
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 10px; font-size: 1rem; font-weight: 700;
+      cursor: pointer; transition: opacity .2s, transform .15s;
+      text-align: center; text-decoration: none;
+    }
+    .stripe-checkout-btn:hover { opacity: .9; transform: translateY(-1px); }
+    .stripe-checkout-btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+    .free-btn {
+      display: block; width: 100%; padding: .9rem;
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border); border-radius: 10px; font-size: .95rem; font-weight: 600;
+      cursor: pointer; transition: border-color .2s;
+      text-align: center; text-decoration: none;
+    }
+    .free-btn:hover { border-color: var(--accent); }
+
+    .secure-note { display: flex; align-items: center; gap: .4rem; font-size: .74rem; color: var(--muted); justify-content: center; margin-top: .75rem; }
+    .secure-note::before { content: "🔒"; }
+
+    .success-msg { display: none; background: rgba(16,185,129,.08); border: 1px solid rgba(16,185,129,.3); border-radius: 10px; padding: 1.5rem; text-align: center; margin-top: 1rem; }
+    .success-msg h3 { color: var(--accent2); font-size: 1.1rem; margin-bottom: .5rem; }
+    .success-msg p { color: var(--muted); font-size: .88rem; }
+
+    .error-msg { display: none; background: rgba(239,68,68,.08); border: 1px solid rgba(239,68,68,.3); border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1rem; font-size: .85rem; color: #f87171; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">AEOHub</a>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <a class="nav-back" href="/">&larr; Back to directory</a>
+    <a href="/dashboard.html" style="color:var(--muted);text-decoration:none;font-size:.84rem;font-weight:500;" id="nav-dash-link" class="nav-back">My Dashboard</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- LEFT: Plan Selector -->
+  <div class="plans">
+    <h1>List Your AEO Tool</h1>
+    <p>Reach 2,000+ B2B buyers, SEO agencies, and SaaS founders who actively search for AEO tools. Choose the plan that fits your growth goals.</p>
+
+    <label class="plan-option active" id="plan-featured-label" onclick="selectPlan('featured')">
+      <input type="radio" name="plan" value="featured" checked>
+      <div class="plan-top">
+        <div class="plan-name">Featured Listing <span class="popular-pill">Most Popular</span></div>
+        <div class="plan-price">$49 <span>/mo</span></div>
+      </div>
+      <div class="plan-desc">Maximum visibility with a full review article and newsletter mention.</div>
+      <ul class="plan-features">
+        <li>Featured badge + top of category ranking</li>
+        <li>Full 800-word editorial review</li>
+        <li>Homepage "Featured Tools" placement</li>
+        <li>Newsletter mention (2,000+ subscribers)</li>
+        <li>Priority indexing for AEO keywords</li>
+        <li>Cancel anytime — no lock-in</li>
+      </ul>
+    </label>
+
+    <label class="plan-option" id="plan-sponsor-label" onclick="selectPlan('sponsor')">
+      <input type="radio" name="plan" value="sponsor">
+      <div class="plan-top">
+        <div class="plan-name">Sponsor Spotlight</div>
+        <div class="plan-price">$149 <span>/mo</span></div>
+      </div>
+      <div class="plan-desc">Top-of-funnel dominance with homepage hero placement.</div>
+      <ul class="plan-features">
+        <li>Everything in Featured</li>
+        <li>Homepage hero banner slot</li>
+        <li>Dedicated newsletter issue (solo)</li>
+        <li>Social media shoutout</li>
+        <li>AEOHub "Recommended" badge</li>
+        <li>Monthly performance analytics report</li>
+      </ul>
+    </label>
+
+    <label class="plan-option" id="plan-free-label" onclick="selectPlan('free')">
+      <input type="radio" name="plan" value="free">
+      <div class="plan-top">
+        <div class="plan-name">Standard Listing</div>
+        <div class="plan-price">Free <span>/forever</span></div>
+      </div>
+      <div class="plan-desc">Basic listing with a dofollow backlink. 7-day review SLA.</div>
+      <ul class="plan-features">
+        <li>Tool card in directory</li>
+        <li>Category page listing</li>
+        <li>Dofollow backlink to your site</li>
+        <li>Review within 7 days</li>
+      </ul>
+    </label>
+
+    <div class="guarantee">
+      <span class="guarantee-icon">&#128737;</span>
+      <div class="guarantee-text">
+        <strong>30-day money-back guarantee</strong>
+        If you don't see results from your featured listing within 30 days, we'll refund you — no questions asked.
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Submission Form + Payment -->
+  <div>
+    <div class="form-card">
+      <h2>Tool Details</h2>
+
+      <div class="error-msg" id="error-msg"></div>
+
+      <form id="submit-form" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="tool-name">Tool Name *</label>
+          <input type="text" id="tool-name" placeholder="e.g. Trustable Labs" required />
+        </div>
+        <div class="form-group">
+          <label for="tool-url">Tool URL *</label>
+          <input type="url" id="tool-url" placeholder="https://yourtool.com" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tool-category">Category *</label>
+            <select id="tool-category" required>
+              <option value="">Select…</option>
+              <option>AI Visibility Tracking</option>
+              <option>AEO Content Creation</option>
+              <option>Structured Data / Schema</option>
+              <option>Link Building for AEO</option>
+              <option>AI Brand Monitoring</option>
+              <option>AEO Analytics</option>
+              <option>PR &amp; Media for AEO</option>
+              <option>Other AEO Tool</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="tool-pricing">Pricing Model *</label>
+            <select id="tool-pricing" required>
+              <option value="">Select…</option>
+              <option>Free</option>
+              <option>Freemium</option>
+              <option>Paid (subscription)</option>
+              <option>Paid (one-time)</option>
+              <option>Custom / Enterprise</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="tool-tagline">Tagline (max 60 chars) *</label>
+          <input type="text" id="tool-tagline" placeholder="e.g. AI search visibility scoring for B2B brands" maxlength="60" required />
+        </div>
+        <div class="form-group">
+          <label for="tool-desc">Description (100–200 words) *</label>
+          <textarea id="tool-desc" placeholder="Describe what your tool does, who it's for, and what makes it different from alternatives…" rows="4" required></textarea>
+        </div>
+
+        <hr class="divider">
+
+        <div class="form-group">
+          <label for="contact-email">Your Email Address *</label>
+          <input type="email" id="contact-email" placeholder="founder@yourtool.com" required />
+        </div>
+        <div class="form-group">
+          <label for="contact-name">Your Name *</label>
+          <input type="text" id="contact-name" placeholder="Jane Smith" required />
+        </div>
+
+        <hr class="divider">
+
+        <div class="payment-section">
+          <h3 id="payment-title">Payment — Featured Listing ($49/mo)</h3>
+
+          <div class="stripe-btn-wrap" id="paid-section">
+            <button type="submit" class="stripe-checkout-btn" id="submit-btn">
+              Continue to Checkout &rarr;
+            </button>
+            <p class="secure-note">Secure payment via Stripe. Cancel anytime.</p>
+          </div>
+
+          <div id="free-section" style="display:none">
+            <button type="submit" class="free-btn" id="free-btn">
+              Submit for Free Review &rarr;
+            </button>
+            <p class="secure-note">We'll review and list your tool within 7 days.</p>
+          </div>
+        </div>
+      </form>
+
+      <div class="success-msg" id="success-msg">
+        <h3>&#10003; Submission received!</h3>
+        <p id="success-text">Redirecting to checkout…</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // AEOHub Auth gate — redirect to sign in if not authenticated
+  const SESSION_KEY = 'aeohub_session';
+  const session = JSON.parse(localStorage.getItem(SESSION_KEY) || 'null');
+  if (!session || !session.email) {
+    window.location.href = '/auth.html?next=' + encodeURIComponent(window.location.pathname + window.location.search);
+  }
+
+  // Pre-fill email from session
+  if (session && session.email) {
+    window.addEventListener('DOMContentLoaded', () => {
+      const emailEl = document.getElementById('contact-email');
+      const nameEl = document.getElementById('contact-name');
+      if (emailEl) emailEl.value = session.email;
+      if (nameEl && session.name) nameEl.value = session.name;
+    });
+  }
+
+  // Stripe payment links — set AEOHUB_STRIPE_FEATURED and AEOHUB_STRIPE_SPONSOR in your Stripe dashboard
+  const STRIPE_LINKS = {
+    featured: 'https://buy.stripe.com/test_9AQ8yfdX15xz0La144',
+    sponsor:  'https://buy.stripe.com/test_3cs8yf7yD4tv3Xm6or',
+  };
+
+  let currentPlan = 'featured';
+
+  // Pre-select plan from URL param
+  const urlPlan = new URLSearchParams(window.location.search).get('plan');
+  if (urlPlan) selectPlan(urlPlan);
+
+  function selectPlan(plan) {
+    currentPlan = plan;
+    document.querySelectorAll('.plan-option').forEach(el => el.classList.remove('active'));
+    const label = document.getElementById('plan-' + plan + '-label');
+    if (label) label.classList.add('active');
+
+    const paidSection = document.getElementById('paid-section');
+    const freeSection = document.getElementById('free-section');
+    const paymentTitle = document.getElementById('payment-title');
+
+    if (plan === 'free') {
+      paidSection.style.display = 'none';
+      freeSection.style.display = 'block';
+      paymentTitle.textContent = 'Free Standard Listing';
+    } else if (plan === 'sponsor') {
+      paidSection.style.display = 'block';
+      freeSection.style.display = 'none';
+      paymentTitle.textContent = 'Payment — Sponsor Spotlight ($149/mo)';
+      document.getElementById('submit-btn').textContent = 'Continue to Checkout →';
+    } else {
+      paidSection.style.display = 'block';
+      freeSection.style.display = 'none';
+      paymentTitle.textContent = 'Payment — Featured Listing ($49/mo)';
+      document.getElementById('submit-btn').textContent = 'Continue to Checkout →';
+    }
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const errorEl = document.getElementById('error-msg');
+    errorEl.style.display = 'none';
+
+    const toolName    = document.getElementById('tool-name').value.trim();
+    const toolUrl     = document.getElementById('tool-url').value.trim();
+    const toolCat     = document.getElementById('tool-category').value;
+    const toolPricing = document.getElementById('tool-pricing').value;
+    const toolTagline = document.getElementById('tool-tagline').value.trim();
+    const toolDesc    = document.getElementById('tool-desc').value.trim();
+    const email       = document.getElementById('contact-email').value.trim();
+    const name        = document.getElementById('contact-name').value.trim();
+
+    if (!toolName || !toolUrl || !toolCat || !toolPricing || !toolTagline || !toolDesc || !email || !name) {
+      errorEl.textContent = 'Please fill in all required fields.';
+      errorEl.style.display = 'block';
+      return;
+    }
+
+    // Save submission to localStorage
+    const submission = { toolName, toolUrl, toolCat, toolPricing, toolTagline, toolDesc, email, name, plan: currentPlan, ts: Date.now() };
+    const subs = JSON.parse(localStorage.getItem('aeohub_submissions') || '[]');
+    subs.push(submission);
+    localStorage.setItem('aeohub_submissions', JSON.stringify(subs));
+
+    // Show success state
+    document.getElementById('submit-form').style.display = 'none';
+    const successEl = document.getElementById('success-msg');
+    successEl.style.display = 'block';
+
+    if (currentPlan === 'free') {
+      document.getElementById('success-text').textContent =
+        'Thanks ' + name + '! We\'ll review ' + toolName + ' and email you at ' + email + ' within 7 days.';
+    } else {
+      document.getElementById('success-text').textContent =
+        'Taking you to secure checkout… (opens in 2 seconds)';
+      // Redirect to Stripe with prefilled data + success_url back to AEOHub
+      const successUrl = encodeURIComponent(window.location.origin + '/success.html?plan=' + currentPlan);
+      const stripeUrl = STRIPE_LINKS[currentPlan] +
+        '?prefilled_email=' + encodeURIComponent(email) +
+        '&client_reference_id=' + encodeURIComponent(toolName) +
+        '&success_url=' + successUrl;
+      setTimeout(() => { window.location.href = stripeUrl; }, 2000);
+    }
+  }
+</script>
+</body>
+</html>

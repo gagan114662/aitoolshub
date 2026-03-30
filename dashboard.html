@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — AEOHub</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --surface: #12121a; --border: #1e1e2e;
+      --accent: #6366f1; --accent2: #10b981; --accent3: #f59e0b;
+      --text: #e2e8f0; --muted: #64748b; --card: #0f0f18;
+    }
+    body { font-family: "Inter", sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+    nav {
+      background: rgba(10,10,15,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px; position: sticky; top: 0; z-index: 100;
+    }
+    .logo { font-size: 1.2rem; font-weight: 800; text-decoration: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-user { font-size: .84rem; color: var(--muted); }
+    .btn-sm {
+      padding: .4rem 1rem; border-radius: 7px; font-size: .82rem; font-weight: 600;
+      cursor: pointer; font-family: inherit; transition: opacity .2s;
+    }
+    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+    .btn-outline:hover { border-color: var(--accent); }
+    .btn-primary { background: var(--accent); border: none; color: #fff; }
+    .btn-primary:hover { opacity: .88; }
+
+    .main { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem; }
+    .page-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+    .page-header h1 { font-size: 1.6rem; font-weight: 800; }
+    .page-header p { color: var(--muted); font-size: .9rem; margin-top: .3rem; }
+
+    /* Plan card */
+    .plan-banner {
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+      padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;
+    }
+    .plan-info { display: flex; align-items: center; gap: .75rem; }
+    .plan-badge {
+      padding: .3rem .75rem; border-radius: 999px; font-size: .72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .06em;
+    }
+    .plan-badge.free { background: rgba(100,116,139,.15); color: var(--muted); }
+    .plan-badge.featured { background: rgba(99,102,241,.15); color: #a5b4fc; }
+    .plan-badge.sponsor { background: rgba(245,158,11,.15); color: #fbbf24; }
+    .plan-info p { font-size: .88rem; color: var(--muted); }
+    .plan-info strong { color: var(--text); }
+
+    /* Stats row */
+    .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+    .stat-val { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat-lbl { font-size: .78rem; color: var(--muted); margin-top: .25rem; }
+
+    /* Listings */
+    .section-title { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; }
+    .empty-state {
+      background: var(--card); border: 1px dashed var(--border); border-radius: 14px;
+      padding: 3rem; text-align: center;
+    }
+    .empty-state h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .5rem; }
+    .empty-state p { color: var(--muted); font-size: .9rem; margin-bottom: 1.5rem; }
+
+    .listing-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+      padding: 1.25rem 1.5rem; margin-bottom: .75rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .listing-info h3 { font-size: .95rem; font-weight: 700; margin-bottom: .2rem; }
+    .listing-info p { font-size: .82rem; color: var(--muted); }
+    .listing-meta { display: flex; align-items: center; gap: .75rem; }
+    .status-pill {
+      padding: .25rem .7rem; border-radius: 999px; font-size: .72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .05em;
+    }
+    .status-pill.pending { background: rgba(245,158,11,.12); color: #fbbf24; }
+    .status-pill.live { background: rgba(16,185,129,.12); color: #34d399; }
+    .status-pill.featured { background: rgba(99,102,241,.12); color: #a5b4fc; }
+
+    /* Upgrade CTA */
+    .upgrade-cta {
+      background: linear-gradient(135deg, rgba(99,102,241,.1), rgba(16,185,129,.05));
+      border: 1px solid rgba(99,102,241,.25); border-radius: 14px;
+      padding: 2rem; margin-top: 2rem; text-align: center;
+    }
+    .upgrade-cta h2 { font-size: 1.2rem; font-weight: 800; margin-bottom: .5rem; }
+    .upgrade-cta p { color: var(--muted); font-size: .9rem; margin-bottom: 1.5rem; }
+    .upgrade-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .upgrade-btn {
+      padding: .75rem 1.75rem; border-radius: 9px; font-size: .9rem; font-weight: 700;
+      text-decoration: none; transition: opacity .2s, transform .15s;
+      display: inline-block;
+    }
+    .upgrade-btn:hover { opacity: .88; transform: translateY(-1px); }
+    .upgrade-btn.featured { background: var(--accent); color: #fff; }
+    .upgrade-btn.sponsor { background: linear-gradient(135deg, #f59e0b, #ef4444); color: #fff; }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="/">AEOHub</a>
+  <div class="nav-right">
+    <span class="nav-user" id="nav-user-name"></span>
+    <a href="/submit.html" class="btn-sm btn-primary">+ Submit Tool</a>
+    <button class="btn-sm btn-outline" onclick="signOut()">Sign Out</button>
+  </div>
+</nav>
+
+<div class="main">
+  <div class="page-header">
+    <div>
+      <h1>My Dashboard</h1>
+      <p id="welcome-msg">Manage your AEO tool listings and track performance.</p>
+    </div>
+  </div>
+
+  <!-- Plan status banner -->
+  <div class="plan-banner">
+    <div class="plan-info">
+      <span class="plan-badge free" id="plan-badge">Free</span>
+      <div>
+        <strong id="plan-name">Standard Plan</strong>
+        <p id="plan-desc">Basic listing with dofollow backlink.</p>
+      </div>
+    </div>
+    <a href="/submit.html?plan=featured" class="btn-sm btn-primary" id="upgrade-btn">Upgrade to Featured — $49/mo</a>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-val" id="stat-listings">0</div>
+      <div class="stat-lbl">Active Listings</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">—</div>
+      <div class="stat-lbl">Directory Views (30d)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">—</div>
+      <div class="stat-lbl">Click-throughs (30d)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">—</div>
+      <div class="stat-lbl">AI Mentions Tracked</div>
+    </div>
+  </div>
+
+  <!-- Listings -->
+  <div class="section-title">Your Listings</div>
+  <div id="listings-container">
+    <div class="empty-state">
+      <h3>No listings yet</h3>
+      <p>Submit your AEO tool to get discovered by 2,000+ B2B buyers, SEO agencies, and SaaS founders.</p>
+      <a href="/submit.html" class="btn-sm btn-primary" style="display:inline-block;padding:.7rem 1.5rem;border-radius:9px;font-size:.9rem;font-weight:700;text-decoration:none;background:var(--accent);color:#fff;">
+        Submit Your First Tool &rarr;
+      </a>
+    </div>
+  </div>
+
+  <!-- Upgrade CTA (shown to free users) -->
+  <div class="upgrade-cta" id="upgrade-cta">
+    <h2>Unlock Maximum Visibility</h2>
+    <p>Featured listings get 8x more clicks than standard listings. Upgrade to get a full editorial review, newsletter mention, and top-of-category placement.</p>
+    <div class="upgrade-row">
+      <a href="/submit.html?plan=featured" class="upgrade-btn featured">Featured — $49/mo</a>
+      <a href="/submit.html?plan=sponsor" class="upgrade-btn sponsor">Sponsor Spotlight — $149/mo</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const SESSION_KEY = 'aeohub_session';
+  const SUBMISSIONS_KEY = 'aeohub_submissions';
+
+  const session = JSON.parse(localStorage.getItem(SESSION_KEY) || 'null');
+  if (!session || !session.email) {
+    window.location.href = '/auth.html?next=' + encodeURIComponent(window.location.pathname);
+  }
+
+  const name = session ? session.name : '';
+  document.getElementById('nav-user-name').textContent = name;
+  document.getElementById('welcome-msg').textContent = 'Welcome back, ' + name + '.';
+
+  const plan = session ? (session.plan || 'free') : 'free';
+  const planBadge = document.getElementById('plan-badge');
+  const planName = document.getElementById('plan-name');
+  const planDesc = document.getElementById('plan-desc');
+  const upgradeBtn = document.getElementById('upgrade-btn');
+  const upgradeCta = document.getElementById('upgrade-cta');
+
+  if (plan === 'featured') {
+    planBadge.textContent = 'Featured';
+    planBadge.className = 'plan-badge featured';
+    planName.textContent = 'Featured Listing';
+    planDesc.textContent = 'Editorial review · Newsletter mention · Top of category.';
+    upgradeBtn.textContent = 'Upgrade to Sponsor — $149/mo';
+    upgradeBtn.href = '/submit.html?plan=sponsor';
+    upgradeCta.style.display = 'none';
+  } else if (plan === 'sponsor') {
+    planBadge.textContent = 'Sponsor';
+    planBadge.className = 'plan-badge sponsor';
+    planName.textContent = 'Sponsor Spotlight';
+    planDesc.textContent = 'Homepage hero · Dedicated newsletter issue · All Featured benefits.';
+    upgradeBtn.style.display = 'none';
+    upgradeCta.style.display = 'none';
+  }
+
+  // Load submissions
+  const allSubs = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || '[]');
+  const mySubs = allSubs.filter(s => s.email && s.email.toLowerCase() === session.email.toLowerCase());
+  document.getElementById('stat-listings').textContent = mySubs.length;
+
+  if (mySubs.length > 0) {
+    const container = document.getElementById('listings-container');
+    container.innerHTML = mySubs.map(s => `
+      <div class="listing-card">
+        <div class="listing-info">
+          <h3>${escHtml(s.toolName)}</h3>
+          <p>${escHtml(s.toolTagline || '')} &nbsp;·&nbsp; <a href="${escHtml(s.toolUrl)}" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">${escHtml(s.toolUrl)}</a></p>
+        </div>
+        <div class="listing-meta">
+          <span class="status-pill ${s.plan === 'free' ? 'pending' : s.plan === 'featured' ? 'featured' : 'live'}">
+            ${s.plan === 'free' ? 'Under Review' : s.plan === 'featured' ? 'Featured' : 'Sponsor'}
+          </span>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function escHtml(str) {
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function signOut() {
+    localStorage.removeItem(SESSION_KEY);
+    window.location.href = '/';
+  }
+</script>
+</body>
+</html>

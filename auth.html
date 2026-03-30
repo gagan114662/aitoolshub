@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — AEOHub</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --surface: #12121a; --border: #1e1e2e;
+      --accent: #6366f1; --accent2: #10b981;
+      --text: #e2e8f0; --muted: #64748b; --card: #0f0f18;
+    }
+    body { font-family: "Inter", sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
+    nav {
+      background: rgba(10,10,15,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .logo { font-size: 1.2rem; font-weight: 800; text-decoration: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 2rem; }
+    .auth-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 18px;
+      padding: 2.5rem; width: 100%; max-width: 420px;
+    }
+    .auth-card h1 { font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
+    .auth-card p { color: var(--muted); font-size: .9rem; margin-bottom: 2rem; }
+    .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 1.75rem; }
+    .tab {
+      flex: 1; padding: .75rem; text-align: center; font-size: .88rem; font-weight: 600;
+      color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s; background: none; border-top: none; border-left: none; border-right: none;
+    }
+    .tab.active { color: var(--text); border-bottom-color: var(--accent); }
+    .form-group { margin-bottom: 1.1rem; }
+    label { display: block; font-size: .78rem; font-weight: 600; color: var(--muted); margin-bottom: .4rem; text-transform: uppercase; letter-spacing: .06em; }
+    input[type=text], input[type=email], input[type=password] {
+      width: 100%; padding: .75rem 1rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text); font-size: .9rem;
+      font-family: inherit; outline: none; transition: border-color .2s;
+    }
+    input:focus { border-color: var(--accent); }
+    .btn-primary {
+      display: block; width: 100%; padding: .9rem;
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 10px; font-size: .95rem; font-weight: 700;
+      cursor: pointer; transition: opacity .2s; margin-top: 1.25rem;
+      font-family: inherit;
+    }
+    .btn-primary:hover { opacity: .88; }
+    .btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+    .divider { display: flex; align-items: center; gap: 1rem; margin: 1.25rem 0; color: var(--muted); font-size: .78rem; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .btn-google {
+      display: flex; align-items: center; justify-content: center; gap: .65rem;
+      width: 100%; padding: .85rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; font-size: .9rem; font-weight: 600;
+      cursor: pointer; color: var(--text); transition: border-color .2s;
+      font-family: inherit;
+    }
+    .btn-google:hover { border-color: var(--accent); }
+    .msg { padding: .8rem 1rem; border-radius: 8px; font-size: .84rem; margin-bottom: 1rem; display: none; }
+    .msg.error { background: rgba(239,68,68,.08); border: 1px solid rgba(239,68,68,.3); color: #f87171; }
+    .msg.success { background: rgba(16,185,129,.08); border: 1px solid rgba(16,185,129,.3); color: #34d399; }
+    .terms { font-size: .74rem; color: var(--muted); text-align: center; margin-top: 1rem; }
+    .terms a { color: var(--accent); text-decoration: none; }
+    #signin-panel { display: none; }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="/">AEOHub</a>
+</nav>
+<div class="main">
+  <div class="auth-card">
+    <h1>Welcome to AEOHub</h1>
+    <p>Sign in or create an account to submit and manage your AEO tool listings.</p>
+
+    <div class="tabs">
+      <button class="tab active" id="tab-signup" onclick="switchTab('signup')">Create Account</button>
+      <button class="tab" id="tab-signin" onclick="switchTab('signin')">Sign In</button>
+    </div>
+
+    <div id="msg" class="msg"></div>
+
+    <!-- Sign Up -->
+    <div id="signup-panel">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="su-name" placeholder="Jane Smith" />
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="su-email" placeholder="jane@company.com" />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="su-pass" placeholder="Min. 8 characters" />
+      </div>
+      <button class="btn-primary" onclick="handleSignup()">Create Account &rarr;</button>
+      <p class="terms">By creating an account you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
+    </div>
+
+    <!-- Sign In -->
+    <div id="signin-panel">
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="si-email" placeholder="jane@company.com" />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="si-pass" placeholder="Your password" />
+      </div>
+      <button class="btn-primary" onclick="handleSignin()">Sign In &rarr;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // AEOHub Auth — localStorage-based (production: swap for Clerk or Supabase Auth)
+  const USERS_KEY = 'aeohub_users';
+  const SESSION_KEY = 'aeohub_session';
+
+  // Redirect if already signed in
+  const session = JSON.parse(localStorage.getItem(SESSION_KEY) || 'null');
+  if (session && session.email) {
+    const dest = new URLSearchParams(window.location.search).get('next') || '/dashboard.html';
+    window.location.href = dest;
+  }
+
+  function switchTab(tab) {
+    document.getElementById('signup-panel').style.display = tab === 'signup' ? 'block' : 'none';
+    document.getElementById('signin-panel').style.display = tab === 'signin' ? 'block' : 'none';
+    document.getElementById('tab-signup').classList.toggle('active', tab === 'signup');
+    document.getElementById('tab-signin').classList.toggle('active', tab === 'signin');
+    hideMsg();
+  }
+  // Default show signup
+  document.getElementById('signup-panel').style.display = 'block';
+
+  function showMsg(text, type) {
+    const el = document.getElementById('msg');
+    el.textContent = text;
+    el.className = 'msg ' + type;
+    el.style.display = 'block';
+  }
+  function hideMsg() {
+    document.getElementById('msg').style.display = 'none';
+  }
+
+  function handleSignup() {
+    const name  = document.getElementById('su-name').value.trim();
+    const email = document.getElementById('su-email').value.trim().toLowerCase();
+    const pass  = document.getElementById('su-pass').value;
+
+    if (!name || !email || !pass) return showMsg('Please fill in all fields.', 'error');
+    if (pass.length < 8) return showMsg('Password must be at least 8 characters.', 'error');
+    if (!/^[^@]+@[^@]+\.[^@]+$/.test(email)) return showMsg('Please enter a valid email address.', 'error');
+
+    const users = JSON.parse(localStorage.getItem(USERS_KEY) || '{}');
+    if (users[email]) return showMsg('An account with this email already exists. Sign in instead.', 'error');
+
+    // Simple hash (NOT secure — production needs bcrypt/server-side)
+    const passHash = btoa(email + ':' + pass);
+    users[email] = { name, email, passHash, createdAt: Date.now(), plan: 'free' };
+    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+
+    // Auto sign in
+    const sessionData = { email, name, plan: 'free', ts: Date.now() };
+    localStorage.setItem(SESSION_KEY, JSON.stringify(sessionData));
+    showMsg('Account created! Redirecting…', 'success');
+
+    setTimeout(() => {
+      const dest = new URLSearchParams(window.location.search).get('next') || '/dashboard.html';
+      window.location.href = dest;
+    }, 1000);
+  }
+
+  function handleSignin() {
+    const email = document.getElementById('si-email').value.trim().toLowerCase();
+    const pass  = document.getElementById('si-pass').value;
+
+    if (!email || !pass) return showMsg('Please enter your email and password.', 'error');
+
+    const users = JSON.parse(localStorage.getItem(USERS_KEY) || '{}');
+    const user = users[email];
+    if (!user) return showMsg('No account found with that email.', 'error');
+
+    const passHash = btoa(email + ':' + pass);
+    if (user.passHash !== passHash) return showMsg('Incorrect password.', 'error');
+
+    const sessionData = { email, name: user.name, plan: user.plan || 'free', ts: Date.now() };
+    localStorage.setItem(SESSION_KEY, JSON.stringify(sessionData));
+    showMsg('Signed in! Redirecting…', 'success');
+
+    setTimeout(() => {
+      const dest = new URLSearchParams(window.location.search).get('next') || '/dashboard.html';
+      window.location.href = dest;
+    }, 800);
+  }
+
+  // Allow Enter key on password fields
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      const panel = document.getElementById('signin-panel').style.display;
+      if (panel === 'block') handleSignin();
+      else handleSignup();
+    }
+  });
+</script>
+</body>
+</html>
