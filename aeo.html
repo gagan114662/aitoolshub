@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AEO Visibility Tracker — Does Your Brand Show Up in AI Search?</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0f;
+    color: #e8e8f0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+  }
+
+  .hero {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 80px 24px 60px;
+    text-align: center;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    color: #a78bfa;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+
+  h1 {
+    font-size: clamp(36px, 6vw, 58px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  h1 span {
+    background: linear-gradient(135deg, #8b5cf6, #6366f1, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subheadline {
+    font-size: 20px;
+    color: #9ca3af;
+    line-height: 1.6;
+    max-width: 560px;
+    margin: 0 auto 48px;
+  }
+
+  .pain-points {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 560px;
+    margin: 0 auto 48px;
+    text-align: left;
+  }
+
+  .pain-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+
+  .pain-point .icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .pain-point strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #f3f4f6;
+  }
+
+  .pain-point p {
+    font-size: 14px;
+    color: #9ca3af;
+    line-height: 1.5;
+  }
+
+  .cta-section {
+    margin-bottom: 24px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #7c3aed, #6366f1);
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 18px 48px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 24px rgba(124, 58, 237, 0.4);
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(124, 58, 237, 0.5);
+  }
+
+  .cta-sub {
+    font-size: 14px;
+    color: #6b7280;
+    margin-top: 12px;
+  }
+
+  .social-proof {
+    max-width: 760px;
+    margin: 0 auto 60px;
+    padding: 0 24px;
+  }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .proof-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .proof-card .metric {
+    font-size: 32px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .proof-card p {
+    font-size: 14px;
+    color: #9ca3af;
+    margin-top: 4px;
+  }
+
+  .what-you-get {
+    max-width: 760px;
+    margin: 0 auto 60px;
+    padding: 0 24px;
+  }
+
+  .what-you-get h2 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .deliverables {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .deliverables li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    color: #d1d5db;
+  }
+
+  .deliverables li::before {
+    content: "✓";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: rgba(139, 92, 246, 0.2);
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    border-radius: 6px;
+    color: #a78bfa;
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .bottom-cta {
+    max-width: 760px;
+    margin: 0 auto 80px;
+    padding: 0 24px;
+    text-align: center;
+  }
+
+  .price-box {
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 24px;
+  }
+
+  .price {
+    font-size: 56px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .price span {
+    font-size: 24px;
+    font-weight: 400;
+    color: #9ca3af;
+  }
+
+  .price-desc {
+    font-size: 16px;
+    color: #9ca3af;
+    margin-bottom: 28px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 24px;
+    color: #374151;
+    font-size: 13px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 48px 20px 40px; }
+    .proof-grid { grid-template-columns: 1fr 1fr; }
+    .price { font-size: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="badge">🤖 AEO Visibility Tracker</div>
+  <h1>Does your brand show up<br>when buyers ask <span>AI</span>?</h1>
+  <p class="subheadline">
+    67% of B2B buyers now use ChatGPT, Perplexity, or Claude to find vendors.
+    If your brand isn't in those answers, you're invisible to them.
+  </p>
+
+  <div class="pain-points">
+    <div class="pain-point">
+      <div class="icon">🔍</div>
+      <div>
+        <strong>AI is the new Google — and you're not on page 1</strong>
+        <p>Buyers skip search engines. They ask AI: "What's the best CRM for a 50-person team?" Your name needs to appear.</p>
+      </div>
+    </div>
+    <div class="pain-point">
+      <div class="icon">📉</div>
+      <div>
+        <strong>Your SEO investment may be wasted</strong>
+        <p>AI assistants don't rank pages. They synthesize answers. Traditional SEO doesn't guarantee AI visibility.</p>
+      </div>
+    </div>
+    <div class="pain-point">
+      <div class="icon">💸</div>
+      <div>
+        <strong>Competitors are already doing AEO — are you?</strong>
+        <p>Answer Engine Optimization is the fastest-growing category in B2B marketing. Early movers win the AI search game.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <a href="#stripe-placeholder" class="cta-btn">Get Your AEO Report — $99</a>
+    <p class="cta-sub">One-time payment · Delivered in 24 hours · Instant insights</p>
+  </div>
+</section>
+
+<section class="social-proof">
+  <div class="proof-grid">
+    <div class="proof-card">
+      <div class="metric">5</div>
+      <p>AI prompts tested (ChatGPT, Claude, Perplexity)</p>
+    </div>
+    <div class="proof-card">
+      <div class="metric">24h</div>
+      <p>Report delivered to your inbox</p>
+    </div>
+    <div class="proof-card">
+      <div class="metric">$99</div>
+      <p>One-time · No subscription · No hidden fees</p>
+    </div>
+  </div>
+</section>
+
+<section class="what-you-get">
+  <h2>What's in your report</h2>
+  <ul class="deliverables">
+    <li>Your brand's visibility score (0–100%) across 5 AI buyer prompts</li>
+    <li>Exact AI responses — see what buyers actually see</li>
+    <li>Which competitors appear when you don't</li>
+    <li>3 specific recommendations to improve your AI visibility score</li>
+    <li>Comparison to your top 3 competitors (included free)</li>
+    <li>PDF + JSON data export for your marketing team</li>
+  </ul>
+</section>
+
+<section class="bottom-cta">
+  <div class="price-box">
+    <div class="price">$99 <span>one-time</span></div>
+    <p class="price-desc">Know exactly where you stand in AI search — before your next sales cycle</p>
+    <a href="#stripe-placeholder" class="cta-btn">Order My AEO Report →</a>
+  </div>
+  <p class="cta-sub">Questions? Email us at aeo@aitoolshub.io — typically reply within 2 hours.</p>
+</section>
+
+<footer>
+  © 2025 AIToolsHub · AEO Visibility Tracker · <a href="https://gagan114662.github.io/aitoolshub" style="color:#6b7280">Home</a>
+</footer>
+
+</body>
+</html>
